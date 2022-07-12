@@ -27,10 +27,14 @@ paretteContainer.addEventListener('click', galleryGlleryImgClick);
 function galleryGlleryImgClick(e) {
   e.preventDfault();
 
+  if (!e.target.classList.contains("gallery__image")) {
+    return;
+  }
 
+}
 const fullSizeImage = basicLightbox.create(
   `<img src=${e.target.dataset.source}>`
 );
 fullSizeImage.show();
 
-}
+
