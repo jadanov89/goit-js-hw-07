@@ -1,4 +1,4 @@
-import { galleryItems } from "./js/gallery-items.js";
+import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const paretteContainer = document.querySelector('.gallery');
@@ -19,4 +19,18 @@ function createGalleryItems(galleryItems) {
         </a>
       </div>`;
     }).join('');
+}
+
+paretteContainer.addEventListener('click', galleryGlleryImgClick);
+
+
+function galleryGlleryImgClick(e) {
+  e.preventDfault();
+
+
+const fullSizeImage = basicLightbox.create(
+  `<img src=${e.target.dataset.source}>`
+);
+fullSizeImage.show();
+
 }
