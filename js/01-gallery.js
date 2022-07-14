@@ -22,7 +22,8 @@ function createGalleryItems(galleryItems) {
 }
 
 
-paretteContainer.addEventListener('click', galleryGlleryImgClick)
+paretteContainer.addEventListener('click', galleryGlleryImgClick);
+window.addEventListener("keydown", closeModal);
 
 
 function galleryGlleryImgClick(evt) {
@@ -40,6 +41,14 @@ function galleryGlleryImgClick(evt) {
   );
 
   bigSizeImage.show();
+}
+
+function closeModal(evt) {
+  if (evt.code === "Escape") {
+    fullSizeImage.close(() =>
+      window.removeEventListener("keydown", closeModal)
+    );
+  }
 }
   
 
