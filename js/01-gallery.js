@@ -2,9 +2,9 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const paretteContainer = document.querySelector('.gallery');
-const cre = createGalleryItems(galleryItems);
+const createMarkup = createGalleryItems(galleryItems);
 
-paretteContainer.insertAdjacentHTML('beforeend', cre);
+paretteContainer.insertAdjacentHTML('beforeend', createMarkup);
 
 function createGalleryItems(galleryItems) {
     return galleryItems.map(({preview, original, description}) => {
@@ -21,20 +21,25 @@ function createGalleryItems(galleryItems) {
     }).join('');
 }
 
-paretteContainer.addEventListener('click', galleryGlleryImgClick);
+
+paretteContainer.addEventListener('click', galleryGlleryImgClick)
 
 
-function galleryGlleryImgClick(e) {
-  e.preventDfault();
+function galleryGlleryImgClick(evt) {
+  evt.preventDefault();
 
-  if (!e.target.classList.contains("gallery__image")) {
-    return;
-  }
+    const isGalerryClick = evt.target.classList.contains("gallery__image");
 
+    if(!isGalerryClick) {
+      return;
+    }
+  
+
+  const bigSizeImage = basicLightbox.create(
+    `<img src=${evt.target.dataset.source}>`
+  );
+
+  bigSizeImage.show();
 }
-const fullSizeImage = basicLightbox.create(
-  `<img src=${e.target.dataset.source}>`
-);
-fullSizeImage.show();
-
+  
 
