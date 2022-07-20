@@ -23,6 +23,7 @@ function createGalleryItems(galleryItems) {
 
 
 paretteContainer.addEventListener('click', galleryGlleryImgClick);
+
 window.addEventListener("keydown", closeModal);
 
 
@@ -34,7 +35,6 @@ function galleryGlleryImgClick(evt) {
     if(!isGalerryClick) {
       return;
     }
-  
 
   const bigSizeImage = basicLightbox.create(
     `<img src=${evt.target.dataset.source}>`
